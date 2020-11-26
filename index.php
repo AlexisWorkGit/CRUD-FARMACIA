@@ -33,10 +33,11 @@
 </head>
 <body>
    
-	<nav class="menu">
+	
+<nav class="menu">
 	
     <a href="#prueba">Productos</a>
-    <a href="#prueba2">Contacto</a>
+    <a href="#prueba2">UNACH</a>
 </nav>
 
 <main class="container">
@@ -47,7 +48,6 @@
         </div>
     </div>
     <div class="Cuadro">
-
     </div>
     <div class="wrapper">
         <div class="container-fluid">
@@ -121,7 +121,7 @@
             <div class="row justify-content-center">
                 <article class="col-6 col-lg-3 py-1">
                     <figure class="producto">
-                        <img src="img/products/mueble-1.jpg" class="img-fluid" alt="">
+                        <img src="img/mueble-1.jpeg" class="img-fluid" alt="">
                         <figcaption class="overlay">
                             <p class="overlay-texto">Descripción pequeña</p>
                         </figcaption>
@@ -130,7 +130,7 @@
 
                 <article class="col-6 col-lg-3 py-1">
                     <figure class="producto">
-                        <img src="img/products/mueble-2.jpg" class="img-fluid" alt="">
+                        <img src="img/mueble-2.jpeg" class="img-fluid" alt="">
                         <figcaption class="overlay">
                             <p class="overlay-texto">Descripción pequeña</p>
                         </figcaption>
@@ -139,7 +139,7 @@
 
                 <article class="col-6 col-lg-3 py-1">
                     <figure class="producto">
-                        <img src="img/products/mueble-3.jpg" class="img-fluid" alt="">
+                        <img src="img/mueble-3.jpeg" class="img-fluid" alt="">
                         <figcaption class="overlay">
                             <p</p</p class="overlay-texto">Descripción pequeña</p>
                         </figcaption>
@@ -148,7 +148,7 @@
 
                 <article class="col-6 col-lg-3 py-1">
                     <figure class="producto">
-                        <img src="img/products/mueble-4.jpg" class="img-fluid" alt="">
+                        <img src="img/mueble-4.jpeg" class="img-fluid" alt="">
                         <figcaption class="overlay">
                             <p class="overlay-texto">Descripción pequeña</p>
                         </figcaption>
@@ -158,8 +158,9 @@
             </div>
         </div>
     </div>
+</main>
 
-<!--<div class="separador text-center text-white">-->
+<div class="separador text-center text-white">
 
 </div>
 
@@ -172,7 +173,7 @@
                     <p>
                         <strong class="mb-2">Un equipo de expertos</strong>
                         <div class="w-100"></div>
-                        comprometidos con la satisfación del cliente
+                        Comprometidos con la satisfación del cliente
                     </p>
                 </figcaption>
             </figure>
@@ -185,7 +186,7 @@
                     <p>
                         <strong class="mb-2">Una historia de servicio</strong>
                         <div class="w-100"></div>
-                        tiene los mismos años que tu papá trabajando para mejorar tu hogar
+                        Siendo confiables para todos los que necesiten de los suministros de salud.
                     </p>
                 </figcaption>
             </figure>
@@ -198,20 +199,21 @@
         <div class="col-12 col-md-9 text-center">
             <h2 class="subtitulo"><span>UNACH</span></h2>
         </div>
-        <div>
-        <img src="img/25_logo_web_lr" class="img-fluid" alt="">
-        </div>
-     <!--   <div class="w-100 mb-4"></div>
-        <div>-->
 
+        <div class="w-100 mb-4"></div>
+        <div>
+        </div>
     </section>
 
     <footer class="row justify-content-center redes-sociales">
-     <div class="menu">
-
-     </div>
+        <div class="col-auto">
+            <a href="#"><img src="img/icons/facebook.png" alt=""></a>
+            <a href="#"><img src="img/icons/twitter.png" alt=""></a>
+            <a href="#"><img src="img/icons/instagram-new.png" alt=""></a>
+        </div>
     </footer>
 </div>
+
 
 <script src="main.js"></script>
 </body>
