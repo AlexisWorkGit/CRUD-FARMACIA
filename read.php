@@ -1,11 +1,11 @@
-<?php
+﻿<?php
 // Check existence of id parameter before processing further
 if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     // Include config file
     require_once "config.php";
     
     // Prepare a select statement
-    $sql = "SELECT * FROM employees WHERE id = ?";
+    $sql = "SELECT * FROM productos WHERE id = ?";
     
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -25,8 +25,8 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                 
                 // Retrieve individual field value
                 $name = $row["name"];
-                $address = $row["address"];
-                $salary = $row["salary"];
+                $marca = $row["marca"];
+                $cantidad = $row["cantidad"];
             } else{
                 // URL doesn't contain valid id parameter. Redirect to error page
                 header("location: error.php");
@@ -76,11 +76,11 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                     </div>
                     <div class="form-group">
                         <label>Dirección</label>
-                        <p class="form-control-static"><?php echo $row["address"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["marca"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Sueldo</label>
-                        <p class="form-control-static"><?php echo $row["salary"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["cantidad"]; ?></p>
                     </div>
                     <p><a href="index.php" class="btn btn-primary">Volver</a></p>
                 </div>

@@ -1,10 +1,10 @@
-<?php
+﻿<?php
 // Include config file
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$name = $address = $salary = "";
-$name_err = $address_err = $salary_err = "";
+$name = $marca = $cantidad = "";
+$name_err = $marca_err = $cantidad_err = "";
  
 // Processing form data when form is submitted
 if(isset($_POST["id"]) && !empty($_POST["id"])){
@@ -21,37 +21,37 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $name = $input_name;
     }
     
-    // Validate address address
-    $input_address = trim($_POST["address"]);
-    if(empty($input_address)){
-        $address_err = "Por favor ingrese una dirección.";     
+    // Validate marca marca
+    $input_marca = trim($_POST["marca"]);
+    if(empty($input_marca)){
+        $marca_err = "Por favor ingrese una dirección.";     
     } else{
-        $address = $input_address;
+        $marca = $input_marca;
     }
     
-    // Validate salary
-    $input_salary = trim($_POST["salary"]);
-    if(empty($input_salary)){
-        $salary_err = "Por favor ingrese el monto del salario del empleado.";     
-    } elseif(!ctype_digit($input_salary)){
-        $salary_err = "Por favor ingrese un valor positivo y válido.";
+    // Validate cantidad
+    $input_cantidad = trim($_POST["cantidad"]);
+    if(empty($input_cantidad)){
+        $cantidad_err = "Por favor ingrese el monto del salario del empleado.";     
+    } elseif(!ctype_digit($input_cantidad)){
+        $cantidad_err = "Por favor ingrese un valor positivo y válido.";
     } else{
-        $salary = $input_salary;
+        $cantidad = $input_cantidad;
     }
     
     // Check input errors before inserting in database
-    if(empty($name_err) && empty($address_err) && empty($salary_err)){
+    if(empty($name_err) && empty($marca_err) && empty($cantidad_err)){
         // Prepare an update statement
-        $sql = "UPDATE employees SET name=?, address=?, salary=? WHERE id=?";
+        $sql = "UPDATE productos SET name=?, marca=?, cantidad=? WHERE id=?";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sssi", $param_name, $param_address, $param_salary, $param_id);
+            mysqli_stmt_bind_param($stmt, "sssi", $param_name, $param_marca, $param_cantidad, $param_id);
             
             // Set parameters
             $param_name = $name;
-            $param_address = $address;
-            $param_salary = $salary;
+            $param_marca = $marca;
+            $param_cantidad = $cantidad;
             $param_id = $id;
             
             // Attempt to execute the prepared statement
@@ -77,7 +77,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $id =  trim($_GET["id"]);
         
         // Prepare a select statement
-        $sql = "SELECT * FROM employees WHERE id = ?";
+        $sql = "SELECT * FROM productos WHERE id = ?";
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "i", $param_id);
@@ -96,8 +96,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     
                     // Retrieve individual field value
                     $name = $row["name"];
-                    $address = $row["address"];
-                    $salary = $row["salary"];
+                    $marca = $row["marca"];
+                    $cantidad = $row["cantidad"];
                 } else{
                     // URL doesn't contain valid id. Redirect to error page
                     header("location: error.php");
@@ -150,15 +150,15 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <input type="text" name="name" class="form-control" value="<?php echo $name; ?>">
                             <span class="help-block"><?php echo $name_err;?></span>
                         </div>
-                        <div class="form-group <?php echo (!empty($address_err)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo (!empty($marca_err)) ? 'has-error' : ''; ?>">
                             <label>Direccion</label>
-                            <textarea name="address" class="form-control"><?php echo $address; ?></textarea>
-                            <span class="help-block"><?php echo $address_err;?></span>
+                            <textarea name="marca" class="form-control"><?php echo $marca; ?></textarea>
+                            <span class="help-block"><?php echo $marca_err;?></span>
                         </div>
-                        <div class="form-group <?php echo (!empty($salary_err)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo (!empty($cantidad_err)) ? 'has-error' : ''; ?>">
                             <label>Sueldo</label>
-                            <input type="text" name="salary" class="form-control" value="<?php echo $salary; ?>">
-                            <span class="help-block"><?php echo $salary_err;?></span>
+                            <input type="text" name="cantidad" class="form-control" value="<?php echo $cantidad; ?>">
+                            <span class="help-block"><?php echo $cantidad_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         <input type="submit" class="btn btn-primary" value="Enviar">
